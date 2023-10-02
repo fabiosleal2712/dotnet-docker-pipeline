@@ -22,7 +22,7 @@ pipeline {
                     }
                 }
             }
-        }
+        
         
         stage('Run Docker load imagem dotnet') {
             steps {
@@ -54,5 +54,5 @@ pipeline {
                 }
             }
         }
-    
+    }
 
