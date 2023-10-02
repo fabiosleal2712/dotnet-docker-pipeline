@@ -39,7 +39,7 @@ pipeline {
                         ssh -o StrictHostKeyChecking=no ec2-user@3.228.20.167 "
                             cd /home/ec2-user/directory
                             sudo yum install git -y
-                            git clone https://github.com/fabiosleal2712/dotnet-docker-pipeline.git
+                            git clone https://github.com/fabiosleal2712/dotnet-docker-pipeline.git || true
                         "
                         '''
                     }
@@ -57,6 +57,7 @@ pipeline {
                         ssh -o StrictHostKeyChecking=no ec2-user@3.228.20.167 "
                             docker network create network-dotnet
                             cd /home/ec2-user/directory/dotnet-docker-pipeline
+                            git pull
                             docker-compose up -d
                         "
                         '''
