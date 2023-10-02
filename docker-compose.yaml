@@ -18,9 +18,9 @@ services:
     image: dotnetbinario
     ports:
       - "5001:8080"
-    volumes:
-      - ./app:/app
-      - ./dotnet:/dotnet
+    #volumes:
+    #  - ./app:/app
+    #  - ./dotnet:/dotnet
     #command: bash -c "ln -s /app/wwwroot/ /wwwroot && /dotnet/dotnet /dist/DockerNetExample.dll"
     networks:
       - my-network
