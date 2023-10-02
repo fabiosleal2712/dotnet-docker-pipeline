@@ -56,7 +56,7 @@ pipeline {
                         sh '''
                         ssh -o StrictHostKeyChecking=no ec2-user@3.228.20.167 "
                             docker network create network-dotnet
-                            cd /home/ec2-user/dotnet-docker-pipeline
+                            cd /home/ec2-user/directory/dotnet-docker-pipeline
                             docker-compose up -d
                         "
                         '''
