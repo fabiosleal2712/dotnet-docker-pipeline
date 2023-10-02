@@ -5,7 +5,7 @@ pipeline {
         stage('Sync s3') {
             steps {
                 script {
-                    sshagent(['4713449b-a476-429a-afe4-f0bec4086c9a']) {
+                    sshagent(['7fd9e024-a02b-4745-ae76-2921235d9980']) {
                         sh '''
                         ssh -o StrictHostKeyChecking=no ec2-user@3.228.20.167 "
                             aws s3 sync s3://docker-image3424644/dotnetbinario/ /home/ec2-user/directory
@@ -19,7 +19,7 @@ pipeline {
         stage('Run Docker load imagem dotnet') {
             steps {
                 script {
-                    sshagent(['4713449b-a476-429a-afe4-f0bec4086c9a']) {
+                    sshagent(['7fd9e024-a02b-4745-ae76-2921235d9980']) {
                         sh '''
                         ssh -o StrictHostKeyChecking=no ec2-user@3.228.20.167 "
                             cd /home/ec2-user/directory
@@ -34,7 +34,7 @@ pipeline {
         stage('Run Another Docker Container on EC2') {
             steps {
                 script {
-                    sshagent(['4713449b-a476-429a-afe4-f0bec4086c9a']) {
+                    sshagent(['7fd9e024-a02b-4745-ae76-2921235d9980']) {
                         sh '''
                         ssh -o StrictHostKeyChecking=no ec2-user@3.228.20.167 "
                             docker network create network-dotnet
