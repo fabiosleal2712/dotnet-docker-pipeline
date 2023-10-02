@@ -19,7 +19,6 @@ pipeline {
         }
 
 
-
     stages {
         stage('Run Docker load imagem dotnet') {
             steps {
