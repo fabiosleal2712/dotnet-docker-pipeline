@@ -37,10 +37,9 @@ pipeline {
                     sshagent(['7fd9e024-a02b-4745-ae76-2921235d9980']) {
                         sh '''
                         ssh -o StrictHostKeyChecking=no ec2-user@3.228.20.167 "
-                            rm -rf /home/ec2-user/terraform-pipeline-jenkins
                             cd /home/ec2-user/directory
                             sudo yum install git -y
-                            git clone https://github.com/fabiosleal2712/terraform-pipeline-jenkins.git
+                            git clone https://github.com/fabiosleal2712/dotnet-docker-pipeline.git
                         "
                         '''
                     }
@@ -57,7 +56,7 @@ pipeline {
                         sh '''
                         ssh -o StrictHostKeyChecking=no ec2-user@3.228.20.167 "
                             docker network create network-dotnet
-                            cd /home/ec2-user/terraform-pipeline-jenkins
+                            cd /home/ec2-user/dotnet-docker-pipeline
                             docker-compose up -d
                         "
                         '''
