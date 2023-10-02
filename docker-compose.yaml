@@ -21,7 +21,7 @@ services:
     volumes:
       - ./app:/app
       - ./dotnet:/dotnet
-    #command: bash -c "ln -s /app/wwwroot/ /wwwroot && /dotnet/dotnet /dist/DockerNetExample.dll"
+    command: bash -c "ln -s /app/wwwroot/ /wwwroot && /dotnet/dotnet /dist/DockerNetExample.dll"
     networks:
       - my-network
 
