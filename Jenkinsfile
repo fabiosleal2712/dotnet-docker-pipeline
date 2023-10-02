@@ -1,16 +1,16 @@
 pipeline {
     agent any
 
-    environment {
-        AWS_CREDENTIALS_USR = credentials('aws-username')
-        AWS_CREDENTIALS_PSW = credentials('aws-password')
-    }
-
     stages {
         stage('Sync s3') {
             steps {
                 script {
-                    withEnv(["AWS_ACCESS_KEY_ID=${AWS_CREDENTIALS_USR}", "AWS_SECRET_ACCESS_KEY=${AWS_CREDENTIALS_PSW}"]) {
+                    withCredentials([
+                        [$class: 'AmazonWebServicesCredentialsBinding', 
+                         accessKeyVariable: 'AWS_ACCESS_KEY_ID', 
+                         secretKeyVariable: 'AWS_SECRET_ACCESS_KEY', 
+                         credentialsId: 'aws-credentials-id']
+                    ]) {
                         sshagent(['c125c30b-4451-4560-9498-c41d193cb266']) {
                             sh '''
                             ssh -o StrictHostKeyChecking=no ec2-user@3.228.20.167 "
@@ -22,6 +22,7 @@ pipeline {
                 }
             }
         }
+        
         stage('Run Docker load imagem dotnet') {
             steps {
                 script {
