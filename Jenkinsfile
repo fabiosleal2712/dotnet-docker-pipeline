@@ -1,29 +1,21 @@
 pipeline {
     agent any
 
-//    stages {
-//        stage('Sync s3') {
+    stages {
+        stage('Sync s3') {
             steps {
                 script {
-//                    withCredentials([
-//                        [$class: 'AmazonWebServicesCredentialsBinding', 
-//                         accessKeyVariable: 'AWS_ACCESS_KEY_ID', 
-//                         secretKeyVariable: 'AWS_SECRET_ACCESS_KEY', 
-//                        credentialsId: '62c39d7a-6bdc-474a-9d4f-7c379e3b7c9d']
-//                    ]) 
-                        {
-                        sshagent(['c125c30b-4451-4560-9498-c41d193cb266']) {
-                            sh '''
-                            ssh -o StrictHostKeyChecking=no ec2-user@3.228.20.167 "
-                                aws s3 sync s3://docker-image3424644/dotnetbinario/ /home/ec2-user/directory
-                            "
-                            '''
-                        }
+                    sshagent(['c125c30b-4451-4560-9498-c41d193cb266']) {
+                        sh '''
+                        ssh -o StrictHostKeyChecking=no ec2-user@3.228.20.167 "
+                            aws s3 sync s3://docker-image3424644/dotnetbinario/ /home/ec2-user/directory
+                        "
+                        '''
                     }
                 }
             }
-        
-        
+        }
+
         stage('Run Docker load imagem dotnet') {
             steps {
                 script {
@@ -55,4 +47,4 @@ pipeline {
             }
         }
     }
-
+}
