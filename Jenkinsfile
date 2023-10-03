@@ -13,7 +13,7 @@ pipeline {
                     ]) {
                         sshagent(['7fd9e024-a02b-4745-ae76-2921235d9980']) {
                             sh '''
-                            ssh -o StrictHostKeyChecking=no ec2-user@3.228.20.167 "
+                            ssh -o StrictHostKeyChecking=no ec2-user@44.199.219.140 "
                                 export AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID}
                                 export AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY}
                                 aws s3 sync s3://docker-image3424644/dotnetbinario/ /home/ec2-user/directory
@@ -30,7 +30,7 @@ pipeline {
                 script {
                     sshagent(['7fd9e024-a02b-4745-ae76-2921235d9980']) {
                         sh '''
-                        ssh -o StrictHostKeyChecking=no ec2-user@3.228.20.167 "
+                        ssh -o StrictHostKeyChecking=no ec2-user@44.199.219.140 "
                             cd /home/ec2-user/directory
                             docker load -i dotnetbinario.tar
                         "
@@ -45,7 +45,7 @@ pipeline {
                 script {
                     sshagent(['7fd9e024-a02b-4745-ae76-2921235d9980']) {
                         sh '''
-                        ssh -o StrictHostKeyChecking=no ec2-user@3.228.20.167 "
+                        ssh -o StrictHostKeyChecking=no ec2-user@44.199.219.140 "
                             cd /home/ec2-user/directory
                             sudo yum install git -y
                             git clone https://github.com/fabiosleal2712/dotnet-docker-pipeline.git || true
@@ -56,13 +56,12 @@ pipeline {
             }
         }
 
-
         stage('Run Another Docker Container on EC2') {
             steps {
                 script {
                     sshagent(['7fd9e024-a02b-4745-ae76-2921235d9980']) {
                         sh '''
-                        ssh -o StrictHostKeyChecking=no ec2-user@3.228.20.167 "
+                        ssh -o StrictHostKeyChecking=no ec2-user@44.199.219.140 "
                             docker network create network-dotnet
                             cd /home/ec2-user/directory/dotnet-docker-pipeline
                             git pull
