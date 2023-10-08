@@ -1,0 +1,90 @@
+
+/* ===========
+   CORE COLORS
+   =========== */
+
+   :root {
+    --color-primary: #8329F6;       /* Primary color */
+    --color-secondary: #4B21FF;     /* Secondary color */
+    --color-fourth: #FF277A;       /* fourth color */
+    --color-fifth: #FFA425;        /* fifth color */
+
+    --color-success: #28A745;       /* Success color */
+    --color-danger: #DC3545;        /* Danger color */
+    --color-warning: #FFC107;       /* Warning color */
+    --color-info: #17A2B8;          /* Info color */
+    --color-light: #F8F9FA;         /* Light color */
+    --color-dark: #343A40;          /* Dark color */
+}
+
+/* ===============
+   BACKGROUND COLORS
+   =============== */
+
+.bg-primary {
+    background-color: var(--color-primary);
+}
+
+.bg-secondary {
+    background-color: var(--color-secondary);
+}
+
+.bg-success {
+    background-color: var(--color-success);
+}
+
+.bg-danger {
+    background-color: var(--color-danger);
+}
+
+.bg-warning {
+    background-color: var(--color-warning);
+}
+
+.bg-info {
+    background-color: var(--color-info);
+}
+
+.bg-light {
+    background-color: var(--color-light);
+}
+
+.bg-dark {
+    background-color: var(--color-dark);
+}
+
+/* ===============
+   TEXT COLORS
+   =============== */
+
+.text-primary {
+    color: var(--color-primary);
+}
+
+.text-secondary {
+    color: var(--color-secondary);
+}
+
+.text-success {
+    color: var(--color-success);
+}
+
+.text-danger {
+    color: var(--color-danger);
+}
+
+.text-warning {
+    color: var(--color-warning);
+}
+
+.text-info {
+    color: var(--color-info);
+}
+
+.text-light {
+    color: var(--color-light);
+}
+
+.text-dark {
+    color: var(--color-dark);
+}

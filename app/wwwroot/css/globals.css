@@ -1,0 +1,80 @@
+body {
+    margin-top: -30px;
+}
+@font-face {
+  font-family: 'Sora';
+  src: url('/assets/fonts/sora/Sora-ExtraLight.ttf') format('truetype');
+  font-weight: 200;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Sora';
+  src: url('/assets/fonts/sora/Sora-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Sora';
+  src: url('/assets/fonts/sora/Sora-Regular.ttf') format('truetype');
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: 'Sora';
+  src: url('/assets/fonts/sora/Sora-Medium.ttf') format('truetype');
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: 'Sora';
+  src: url('/assets/fonts/sora/Sora-SemiBold.ttf') format('truetype');
+  font-weight: 600;
+}
+
+@font-face {
+  font-family: 'Sora';
+  src: url('/assets/fonts/sora/Sora-Bold.ttf') format('truetype');
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: 'Sora';
+  src: url('/assets/fonts/sora/Sora-ExtraBold.ttf') format('truetype');
+  font-weight: 800;
+}
+
+:root {
+  --font-sora: 'Sora', sans-serif;
+
+  /* Font sizes */
+  --font-size-sm: 0.75rem;
+  --font-size-base: 1rem;
+  --font-size-lg: 1.75rem;
+  --font-size-xl: 3rem;
+  --font-size-xxl: 3.75rem;
+
+  /* Font weights */
+  --font-weight-extraLight: 200;
+  --font-weight-light: 300;
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-SemiBold: 600;
+  --font-weight-bold: 700;
+  --font-weight-ExtraBold: 800;
+
+    /* Font height */
+    --font-height-sm: 12px;
+    --font-height-base: 16px;
+    --font-height-lg: 24px;
+    --font-height-xl: 32px;
+    --font-height-xxl: 60px;
+
+  --font-style-italic: "italic";
+  --font-style-normal: "normal";
+
+  font-size: 16px;
+}
+
+
