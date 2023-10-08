@@ -13,10 +13,10 @@ pipeline {
                     ]) {
                         sshagent(['7fd9e024-a02b-4745-ae76-2921235d9980']) {
                             sh '''
-                            ssh -o StrictHostKeyChecking=no ec2-user@54.158.194.214 "
+                            ssh -o StrictHostKeyChecking=no ubuntu@15.228.239.133"
                                 export AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID}
                                 export AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY}
-                                aws s3 sync s3://docker-image3424644/dotnetbinario/ /home/ec2-user/directory
+                                aws s3 sync s3://docker-image3424644/dotnetbinario/ /home/ubuntu/directory
                             "
                             '''
                         }
@@ -30,8 +30,8 @@ pipeline {
                 script {
                     sshagent(['7fd9e024-a02b-4745-ae76-2921235d9980']) {
                         sh '''
-                        ssh -o StrictHostKeyChecking=no ec2-user@54.158.194.214 "
-                            cd /home/ec2-user/directory
+                        ssh -o StrictHostKeyChecking=no ubuntu@15.228.239.133"
+                            cd /home/ubuntu/directory
                             docker load -i dotnetbinario.tar
                         "
                         '''
@@ -45,8 +45,8 @@ pipeline {
                 script {
                     sshagent(['7fd9e024-a02b-4745-ae76-2921235d9980']) {
                         sh '''
-                        ssh -o StrictHostKeyChecking=no ec2-user@54.158.194.214 "
-                            cd /home/ec2-user/directory
+                        ssh -o StrictHostKeyChecking=no ubuntu@15.228.239.133"
+                            cd /home/ubuntu/directory
                             sudo yum install git -y
                             git clone https://github.com/fabiosleal2712/dotnet-docker-pipeline.git || true
                         "
@@ -61,9 +61,9 @@ pipeline {
                 script {
                     sshagent(['7fd9e024-a02b-4745-ae76-2921235d9980']) {
                         sh '''
-                        ssh -o StrictHostKeyChecking=no ec2-user@54.158.194.214 "
+                        ssh -o StrictHostKeyChecking=no ubuntu@15.228.239.133"
                             docker network create network-dotnet
-                            cd /home/ec2-user/directory/dotnet-docker-pipeline
+                            cd /home/ubuntu/directory/dotnet-docker-pipeline
                             git pull
                             docker-compose up -d
                         "
