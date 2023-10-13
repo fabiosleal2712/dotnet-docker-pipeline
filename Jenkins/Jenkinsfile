@@ -52,6 +52,7 @@ pipeline {
                         ssh -o StrictHostKeyChecking=no ec2-user@3.237.10.253 \
                             "cd /home/ec2-user/Niu.Living; \
                             sudo yum install libicu -y; \
+                            export DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=1; \
                             chmod +x ~/dotnet-docker-pipeline/dotnet80100/dotnet; \
                             ~/dotnet-docker-pipeline/dotnet80100/dotnet build ~/Niu.Living/Niu.Living.sln --configuration Release;"
                         '''
