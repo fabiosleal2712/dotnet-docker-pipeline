@@ -13,13 +13,12 @@ pipeline {
                     ]) {
                         sshagent(['7fd9e024-a02b-4745-ae76-2921235d9980']) {
                             sh '''
-                            ssh -o StrictHostKeyChecking=no ec2-user@3.237.10.253"
-                                export AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID}
-                                export AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY}
-                                aws s3 sync s3://docker-image3424644/app1/ /var/lib/docker/volumes/niutecklandpage_prd_app/_data
-                                aws s3 sync s3://docker-image3424644/Niu.Living /home/ec2-user/Niu.Living
-                                aws s3 sync s3://docker-image3424644/dotnet80100 /home/ec2-user/dotnet-docker-pipeline/dotnet80100
-                            "
+                            ssh -o StrictHostKeyChecking=no ec2-user@3.237.10.253 \
+                                "export AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID}; \
+                                export AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY}; \
+                                aws s3 sync s3://docker-image3424644/app1/ /var/lib/docker/volumes/niutecklandpage_prd_app/_data; \
+                                aws s3 sync s3://docker-image3424644/Niu.Living /home/ec2-user/Niu.Living; \
+                                aws s3 sync s3://docker-image3424644/dotnet80100 /home/ec2-user/dotnet-docker-pipeline/dotnet80100;"
                             '''
                         }
                     }
@@ -32,28 +31,25 @@ pipeline {
                 script {
                     sshagent(['7fd9e024-a02b-4745-ae76-2921235d9980']) {
                         sh '''
-                        ssh -o StrictHostKeyChecking=no ec2-user@3.237.10.253"
-                                cd /home/ec2-user/Niu.Living
-                                ~/dotnet-docker-pipeline/dotnet80100/dotnet build ~/Niu.Living/Niu.Living.sln --configuration Release
-
-                        "
+                        ssh -o StrictHostKeyChecking=no ec2-user@3.237.10.253 \
+                            "cd /home/ec2-user/Niu.Living; \
+                            ~/dotnet-docker-pipeline/dotnet80100/dotnet build ~/Niu.Living/Niu.Living.sln --configuration Release;"
                         '''
                     }
                 }
             }
         }
 
-        stage('clonar o repositório') {
+        stage('Clonar o repositório') {
             steps {
                 script {
                     sshagent(['7fd9e024-a02b-4745-ae76-2921235d9980']) {
                         sh '''
-                        ssh -o StrictHostKeyChecking=no ec2-user@3.237.10.253"
-                                sudo yum install git -y
-                                git clone https://github.com/fabiosleal2712/dotnet-docker-pipeline.git || true
-                                cd /home/ec2-user/dotnet-docker-pipeline
-                                git pull
-                        "
+                        ssh -o StrictHostKeyChecking=no ec2-user@3.237.10.253 \
+                            "sudo yum install git -y; \
+                            git clone https://github.com/fabiosleal2712/dotnet-docker-pipeline.git || true; \
+                            cd /home/ec2-user/dotnet-docker-pipeline; \
+                            git pull;"
                         '''
                     }
                 }
@@ -65,12 +61,11 @@ pipeline {
                 script {
                     sshagent(['7fd9e024-a02b-4745-ae76-2921235d9980']) {
                         sh '''
-                        ssh -o StrictHostKeyChecking=no ec2-user@3.237.10.253"
-                            cd /home/ec2-user/dotnet-docker-pipeline
-                            git pull
-                            docker-compose down
-                            docker-compose up -d
-                        "
+                        ssh -o StrictHostKeyChecking=no ec2-user@3.237.10.253 \
+                            "cd /home/ec2-user/dotnet-docker-pipeline; \
+                            git pull; \
+                            docker-compose down; \
+                            docker-compose up -d;"
                         '''
                     }
                 }
