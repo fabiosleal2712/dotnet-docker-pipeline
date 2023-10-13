@@ -2,6 +2,24 @@ pipeline {
     agent any
 
     stages {
+        stage('limpando o ambiente') {
+            steps {
+                script {
+                    sshagent(['7fd9e024-a02b-4745-ae76-2921235d9980']) {
+                        sh '''
+                        ssh -o StrictHostKeyChecking=no ec2-user@3.237.10.253 \
+                            " cd /home/ec2-user/dotnet-docker-pipeline; \
+                            docker-compose down; \
+                            cd ~/; \
+                            rm -rf /home/ec2-user/Niu.Living; \
+                            rm -rf /home/ec2-user/dotnet-docker-pipeline; \
+                            "
+                        '''
+                    }
+                }
+            }
+        }
+
         stage('Sync s3') {
             steps {
                 script {
@@ -66,7 +84,6 @@ pipeline {
                         ssh -o StrictHostKeyChecking=no ec2-user@3.237.10.253 \
                             "cd /home/ec2-user/dotnet-docker-pipeline; \
                             git pull; \
-                            docker-compose down; \
                             docker-compose up -d;"
                         '''
                     }
