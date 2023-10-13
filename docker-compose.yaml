@@ -19,9 +19,9 @@ services:
     ports:
       - "5001:8080"
     volumes:
-      - ./app:/app
-      - ./dotnet:/dotnet
-    command: bash -c "ln -s /app/wwwroot/ /wwwroot && /dotnet/dotnet /app/Niu.Living.dll"
+      - ./app1:/app1
+      - ./dotnet80100:/dotnet80100
+    command: bash -c "ln -s /app1/wwwroot/ /wwwroot && /dotnet80100/dotnet /app1/Niu.Living.dll"
     networks:
       - my-network
 
