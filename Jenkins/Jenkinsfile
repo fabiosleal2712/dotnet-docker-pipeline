@@ -19,7 +19,7 @@ pipeline {
                                 aws s3 sync s3://docker-image3424644/app1/ /home/ec2-user/app1; \
                                 sudo mkdir -p /var/lib/docker/volumes/niutecklandpage_prd_app/_data; \
                                 cd /home/ec2-user/app1; \
-                                sudo rsync -avu --exclude='Jenkins/' . /var/lib/docker/volumes/niutecklandpage_prd_app/_data; \
+                                rsync -avu --exclude='Jenkins/' . /var/lib/docker/volumes/niutecklandpage_prd_app/_data; \
                                 sudo chown -Rv ec2-user:ec2-user /var/lib/docker/volumes/niutecklandpage_prd_app/_data; \
                                 sudo chmod -Rv 775 /var/lib/docker/volumes/niutecklandpage_prd_app/_data; \
                                 "
@@ -54,7 +54,7 @@ pipeline {
                         sh '''
                         ssh -o StrictHostKeyChecking=no ec2-user@35.173.212.164 "
                             cd /home/ec2-user/dotnet-docker-pipeline
-                             docker-compose up -d
+                            docker-compose up -d
                         "
                         '''
                     }
