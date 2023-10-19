@@ -2,21 +2,6 @@ pipeline {
     agent any
 
     stages {
-        stage('limpando o ambiente') {
-            steps {
-                script {
-                    sshagent(['7fd9e024-a02b-4745-ae76-2921235d9980']) {
-                        sh '''
-                        ssh -o StrictHostKeyChecking=no ec2-user@35.173.212.164
-                            " cd /home/ec2-user/dotnet-docker-pipeline
-                            
-                            "
-                        '''
-                    }
-                }
-            }
-        }
-
         stage('Sync s3') {
             steps {
                 script {
