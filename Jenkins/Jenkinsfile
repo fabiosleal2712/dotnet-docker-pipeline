@@ -35,7 +35,9 @@ pipeline {
                         sh '''
                         ssh -o StrictHostKeyChecking=no ec2-user@35.173.212.164 "
                             sudo yum install git -y
-                            git clone https://github.com/fabiosleal2712/dotnet-docker-pipeline.git
+                            git clone https://github.com/fabiosleal2712/dotnet-docker-pipeline.git || true
+                            cd dotnet-docker-pipeline
+                            git pull
                             
                            "
                         '''
