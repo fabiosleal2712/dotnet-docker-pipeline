@@ -35,8 +35,7 @@ pipeline {
                         ssh -o StrictHostKeyChecking=no ec2-user@35.173.212.164
                             "sudo yum install libicu -y
                             export DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=1
-                            chmod +x ~/dotnet-docker-pipeline/dotnet80100/dotnet"
-                           
+                           "
                         '''
                     }
                 }
