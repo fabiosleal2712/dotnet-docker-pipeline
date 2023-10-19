@@ -20,7 +20,7 @@ pipeline {
                                 sudo chown -Rv ec2-user:ec2-user /var/lib/docker/volumes/niutecklandpage_prd_app; \
                                 sudo chmod -Rv 775 /var/lib/docker/volumes/niutecklandpage_prd_app; \
                                 aws s3 sync s3://docker-image3424644/app1/ /var/lib/docker/volumes/niutecklandpage_prd_app/_data; \
-                                sudo chow -Rv ec2-user:ec2-user /var/lib/docker/volumes; \
+                                sudo chown -Rv ec2-user:ec2-user /var/lib/docker/volumes; \
                                 sudo chmod -Rv 775 /var/lib/docker/volumes; \
                                 
                                 "
