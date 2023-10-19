@@ -54,7 +54,7 @@ pipeline {
                             sudo yum install libicu -y; \
                             export DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=1; \
                             chmod +x ~/dotnet-docker-pipeline/dotnet80100/dotnet; \
-                            ~/dotnet-docker-pipeline/dotnet80100/dotnet build ~/Niu.Living/Niu.Living.sln --configuration Release;"
+                           
                         '''
                     }
                 }
