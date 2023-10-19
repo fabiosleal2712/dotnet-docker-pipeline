@@ -27,7 +27,6 @@ pipeline {
             }
         }
 
-
         stage('Clonar o repositório') {
             steps {
                 script {
