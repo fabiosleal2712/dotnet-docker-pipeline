@@ -18,10 +18,10 @@ pipeline {
                                 export AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY}; \
                                 aws s3 sync s3://docker-image3424644/app1/ /home/ec2-user/app1; \
                                 sudo mkdir -p /var/lib/docker/volumes/niutecklandpage_prd_app/_data; \
+                                cd /home/ec2-user/app1; \
+                                sudo rsync -avu --exclude='Jenkins/' . /var/lib/docker/volumes/niutecklandpage_prd_app/_data; \
                                 sudo chown -Rv ec2-user:ec2-user /var/lib/docker/volumes/niutecklandpage_prd_app/_data; \
                                 sudo chmod -Rv 775 /var/lib/docker/volumes/niutecklandpage_prd_app/_data; \
-                                cd /home/ec2-user/app1; \
-                                rsync -avu --exclude='Jenkins/' . /var/lib/docker/volumes/niutecklandpage_prd_app/_data; \
                                 "
                             '''
                         }
