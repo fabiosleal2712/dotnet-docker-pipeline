@@ -33,8 +33,7 @@ pipeline {
                     sshagent(['7fd9e024-a02b-4745-ae76-2921235d9980']) {
                         sh '''
                         ssh -o StrictHostKeyChecking=no ec2-user@35.173.212.164
-                            "cd /home/ec2-user/Niu.Living
-                            sudo yum install libicu -y
+                            "sudo yum install libicu -y
                             export DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=1
                             chmod +x ~/dotnet-docker-pipeline/dotnet80100/dotnet"
                            
