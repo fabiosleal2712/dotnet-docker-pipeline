@@ -7,8 +7,8 @@ pipeline {
                 script {
                     sshagent(['7fd9e024-a02b-4745-ae76-2921235d9980']) {
                         sh '''
-                        ssh -o StrictHostKeyChecking=no ec2-user@35.173.212.164 \
-                            " cd /home/ec2-user/dotnet-docker-pipeline; \
+                        ssh -o StrictHostKeyChecking=no ec2-user@35.173.212.164
+                            " cd /home/ec2-user/dotnet-docker-pipeline
                             
                             "
                         '''
@@ -47,11 +47,11 @@ pipeline {
                 script {
                     sshagent(['7fd9e024-a02b-4745-ae76-2921235d9980']) {
                         sh '''
-                        ssh -o StrictHostKeyChecking=no ec2-user@35.173.212.164 \
-                            "cd /home/ec2-user/Niu.Living; \
-                            sudo yum install libicu -y; \
-                            export DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=1; \
-                            chmod +x ~/dotnet-docker-pipeline/dotnet80100/dotnet; \"
+                        ssh -o StrictHostKeyChecking=no ec2-user@35.173.212.164
+                            "cd /home/ec2-user/Niu.Living
+                            sudo yum install libicu -y
+                            export DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=1
+                            chmod +x ~/dotnet-docker-pipeline/dotnet80100/dotnet"
                            
                         '''
                     }
@@ -64,10 +64,10 @@ pipeline {
                 script {
                     sshagent(['7fd9e024-a02b-4745-ae76-2921235d9980']) {
                         sh '''
-                        ssh -o StrictHostKeyChecking=no ec2-user@35.173.212.164 \
-                            "sudo yum install git -y; \
-                            git clone https://github.com/fabiosleal2712/dotnet-docker-pipeline.git; \
-                            cd /home/ec2-user/dotnet-docker-pipeline; \
+                        ssh -o StrictHostKeyChecking=no ec2-user@35.173.212.164 "
+                            sudo yum install git -y
+                            git clone https://github.com/fabiosleal2712/dotnet-docker-pipeline.git
+                            cd /home/ec2-user/dotnet-docker-pipeline
                            "
                         '''
                     }
@@ -80,9 +80,9 @@ pipeline {
                 script {
                     sshagent(['7fd9e024-a02b-4745-ae76-2921235d9980']) {
                         sh '''
-                        ssh -o StrictHostKeyChecking=no ec2-user@35.173.212.164 \
-                            "cd /home/ec2-user/dotnet-docker-pipeline; \
-                            docker-compose up -d;"
+                        ssh -o StrictHostKeyChecking=no ec2-user@35.173.212.164
+                            "cd /home/ec2-user/dotnet-docker-pipeline
+                             docker-compose up -d"
                         '''
                     }
                 }
