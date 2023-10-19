@@ -51,9 +51,10 @@ pipeline {
                 script {
                     sshagent(['7fd9e024-a02b-4745-ae76-2921235d9980']) {
                         sh '''
-                        ssh -o StrictHostKeyChecking=no ec2-user@35.173.212.164
-                            "cd /home/ec2-user/dotnet-docker-pipeline
-                             docker-compose up -d"
+                        ssh -o StrictHostKeyChecking=no ec2-user@35.173.212.164 "
+                            cd /home/ec2-user/dotnet-docker-pipeline
+                             docker-compose up -d
+                        "
                         '''
                     }
                 }
