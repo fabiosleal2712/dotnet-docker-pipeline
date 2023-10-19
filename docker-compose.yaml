@@ -15,13 +15,11 @@ services:
 
   dotnet:
     container_name: dotnet
-    image: mcr.microsoft.com/dotnet/sdk:8.0
+    build:
+      context: .  # Caminho para o diretório que contém o Dockerfile
+      dockerfile: ./.niutech/Dockerfile  # Nome do Dockerfile, assumindo que está na pasta niutech
     ports:
       - "5001:8080"
-    volumes:
-      - /var/lib/docker/volumes/niutecklandpage_prd_app/_data:/app
-      - ./dotnet80100:/dotnet80100
-    command: bash -c "ln -s /app/wwwroot/ /wwwroot && /dotnet80100/dotnet /app/Niu.Living.dll"
     networks:
       - my-network
 

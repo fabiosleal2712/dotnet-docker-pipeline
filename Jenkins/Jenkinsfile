@@ -7,7 +7,7 @@ pipeline {
                 script {
                     sshagent(['7fd9e024-a02b-4745-ae76-2921235d9980']) {
                         sh '''
-                        ssh -o StrictHostKeyChecking=no ec2-user@3.237.10.253 \
+                        ssh -o StrictHostKeyChecking=no ec2-user@35.173.212.164 \
                             " cd /home/ec2-user/dotnet-docker-pipeline; \
                             docker-compose down; \
                             cd ~/; \
@@ -31,7 +31,7 @@ pipeline {
                     ]) {
                         sshagent(['7fd9e024-a02b-4745-ae76-2921235d9980']) {
                             sh '''
-                            ssh -o StrictHostKeyChecking=no ec2-user@3.237.10.253 \
+                            ssh -o StrictHostKeyChecking=no ec2-user@35.173.212.164 \
                                 "export AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID}; \
                                 export AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY}; \
                                 aws s3 sync s3://docker-image3424644/app1/ /var/lib/docker/volumes/niutecklandpage_prd_app/_data; \
@@ -49,7 +49,7 @@ pipeline {
                 script {
                     sshagent(['7fd9e024-a02b-4745-ae76-2921235d9980']) {
                         sh '''
-                        ssh -o StrictHostKeyChecking=no ec2-user@3.237.10.253 \
+                        ssh -o StrictHostKeyChecking=no ec2-user@35.173.212.164 \
                             "cd /home/ec2-user/Niu.Living; \
                             sudo yum install libicu -y; \
                             export DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=1; \
@@ -66,7 +66,7 @@ pipeline {
                 script {
                     sshagent(['7fd9e024-a02b-4745-ae76-2921235d9980']) {
                         sh '''
-                        ssh -o StrictHostKeyChecking=no ec2-user@3.237.10.253 \
+                        ssh -o StrictHostKeyChecking=no ec2-user@35.173.212.164 \
                             "sudo yum install git -y; \
                             git clone https://github.com/fabiosleal2712/dotnet-docker-pipeline.git || true; \
                             cd /home/ec2-user/dotnet-docker-pipeline; \
@@ -82,7 +82,7 @@ pipeline {
                 script {
                     sshagent(['7fd9e024-a02b-4745-ae76-2921235d9980']) {
                         sh '''
-                        ssh -o StrictHostKeyChecking=no ec2-user@3.237.10.253 \
+                        ssh -o StrictHostKeyChecking=no ec2-user@35.173.212.164 \
                             "cd /home/ec2-user/dotnet-docker-pipeline; \
                             git pull; \
                             docker-compose up -d;"
