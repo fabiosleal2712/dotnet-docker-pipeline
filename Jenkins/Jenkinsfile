@@ -34,7 +34,7 @@ pipeline {
                         sh '''
                         ssh -o StrictHostKeyChecking=no ec2-user@35.173.212.164
                             "sudo yum install libicu -y
-                            export DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=1
+                            
                            "
                         '''
                     }
@@ -50,7 +50,7 @@ pipeline {
                         ssh -o StrictHostKeyChecking=no ec2-user@35.173.212.164 "
                             sudo yum install git -y
                             git clone https://github.com/fabiosleal2712/dotnet-docker-pipeline.git
-                            cd /home/ec2-user/dotnet-docker-pipeline
+                            
                            "
                         '''
                     }
