@@ -71,7 +71,7 @@ pipeline {
                             "sudo yum install git -y; \
                             git clone https://github.com/fabiosleal2712/dotnet-docker-pipeline.git; \
                             cd /home/ec2-user/dotnet-docker-pipeline; \
-                            git pull;"
+                           "
                         '''
                     }
                 }
@@ -85,7 +85,6 @@ pipeline {
                         sh '''
                         ssh -o StrictHostKeyChecking=no ec2-user@35.173.212.164 \
                             "cd /home/ec2-user/dotnet-docker-pipeline; \
-                            git pull; \
                             docker-compose up -d;"
                         '''
                     }
