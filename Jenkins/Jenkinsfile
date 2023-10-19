@@ -9,10 +9,7 @@ pipeline {
                         sh '''
                         ssh -o StrictHostKeyChecking=no ec2-user@35.173.212.164 \
                             " cd /home/ec2-user/dotnet-docker-pipeline; \
-                            docker-compose down; \
-                            cd ~/; \
-                            rm -rf /home/ec2-user/Niu.Living; \
-                            rm -rf /home/ec2-user/dotnet-docker-pipeline; \
+                            
                             "
                         '''
                     }
