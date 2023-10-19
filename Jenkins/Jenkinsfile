@@ -27,20 +27,6 @@ pipeline {
             }
         }
 
-        stage('Run dotnet publish') {
-            steps {
-                script {
-                    sshagent(['7fd9e024-a02b-4745-ae76-2921235d9980']) {
-                        sh '''
-                        ssh -o StrictHostKeyChecking=no ec2-user@35.173.212.164
-                            "sudo yum install libicu -y
-                            
-                           "
-                        '''
-                    }
-                }
-            }
-        }
 
         stage('Clonar o repositório') {
             steps {
